@@ -1,0 +1,47 @@
+// Here we are using a loop, that is gonna check each key and give us the value as wel
+// in this case is searching the colors, palette
+
+@each $key, $val in $colors {
+  // We create a class, .text-#{key}, text + keyname
+  .text-#{$key} {
+    // we assign the value we want
+    color: $val;
+  }
+  .bg-#{$key} {
+    background-color: $val;
+  }
+
+  //   This if statemet checks if the value is black or white, is not gonna create the classes
+  @if ($val != black and $val != white) {
+    //   light variations
+    @for $i from 1 through 9 {
+      .text-#{$key}-light-#{$i} {
+        color: mix(white, $val, $i * 10%);
+      }
+      .bg-#{$key}-light-#{$i} {
+        background-color: mix(white, $val, $i * 10%);
+      }
+    }
+    //   Darker variation
+    @for $i from 1 through 9 {
+      .text-#{$key}-dark-#{$i} {
+        color: mix(black, $val, $i * 10%);
+      }
+      .bg-#{$key}-dark-#{$i} {
+        background-color: mix(black, $val, $i * 10%);
+      }
+    }
+  }
+}
+
+// Because this is true, it's gonna create a class .test-if with color black
+// example of use of if statements
+
+// @if (10 > 5) {
+//   .test-if {
+//     color: black;
+//   } else {
+// .text-if {
+//     color: white;
+// }
+// }

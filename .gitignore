@@ -1,0 +1,8 @@
+# Ignore SASS cache
+.sass-cache/
+
+# Ignore node_modules directory
+node_modules/
+
+# Ignore package-lock.json
+package-lock.json
